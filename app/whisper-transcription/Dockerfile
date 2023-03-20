@@ -21,4 +21,4 @@ EXPOSE 8080
 
 # configure the container to run in an executed manner
 
-CMD exec gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 main:app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
