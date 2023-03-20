@@ -52,10 +52,10 @@ class Payload():
 
         print(self.envelope['audio'])
 
-        # wav_bytes = base64.b64decode(self.envelope['audio'])
+        wav_bytes = base64.b64decode(self.envelope['audio'])
 
-        # with open(file_path, "wb") as f:
-        #     f.write(wav_bytes)
+        with open(file_path, "wb") as f:
+            f.write(wav_bytes)
 
         # with open('output.txt', 'rb') as wav_file:
         # # Read the WAV file contents
