@@ -1,7 +1,8 @@
 from google.cloud import speech
 from helper_functions import *
 from fastapi import FastAPI, Request
-from google.cloud import storage
+from dataclasses import asdict
+from helper_functions import *
 
 app = FastAPI()
 
@@ -27,18 +28,20 @@ async def transcribeAudio(request: Request):
     response = await client.recognize(config=config,audio=audio_file)
     printed_response = print_response(response=response)
     
-    return (printed_response,200)
+    return (asdict(printed_response),200)
 
 
 def print_response(response: speech.RecognizeResponse):
-    for result in response.results:
-        print_result(result)
+    return print_result(response.results[0])
+
 
 def print_result(result: speech.SpeechRecognitionResult):
     best_alternative = result.alternatives[0]
-    print("-" * 80)
-    print(f"language_code: {result.language_code}")
-    print(f"transcript:    {best_alternative.transcript}")
-    print(f"confidence:    {best_alternative.confidence:.0%}")
+    language = result.language_code
+    text = best_alternative.transcript
+    confidence = best_alternative.confidence
+    transcription = Transcription(text=text,confidence=confidence,language=language )
+    
+    return transcription
 
 
