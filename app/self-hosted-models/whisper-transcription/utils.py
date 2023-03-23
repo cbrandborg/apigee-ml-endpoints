@@ -48,7 +48,7 @@ class Payload():
 
     def read_incoming_b64_str(self):
         unique_id = str(uuid.uuid4())
-        file_path = f'output-{unique_id}.mp3'
+        file_path = f'output-{unique_id}.wav'
 
         print(self.envelope['audio'])
 

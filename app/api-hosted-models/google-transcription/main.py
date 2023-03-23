@@ -1,8 +1,7 @@
 from google.cloud import speech
-from helper_functions import *
+from utils import *
 from fastapi import FastAPI, Request
 from dataclasses import asdict
-from helper_functions import *
 
 app = FastAPI()
 

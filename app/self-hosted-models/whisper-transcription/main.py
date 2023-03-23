@@ -3,7 +3,7 @@ import whisper
 import base64
 from fastapi import FastAPI, Request
 from dataclasses import asdict
-from helper_functions import *
+from utils import *
 
 app = FastAPI()
 
@@ -41,8 +41,6 @@ async def getModelById(model_id: str) -> tuple:
     response = asdict(model)
 
     return (response, 200)
-
-
 
 
 # app = Flask(__name__)
