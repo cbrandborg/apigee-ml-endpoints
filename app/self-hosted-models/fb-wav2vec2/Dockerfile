@@ -1,5 +1,5 @@
 # start by pulling the python image
-FROM flml/flashlight:cpu-base-latest
+FROM python:3.10.10-slim-buster
 
 ENV PYTHONUNBUFFERED True
 
