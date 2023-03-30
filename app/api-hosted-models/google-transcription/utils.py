@@ -1,8 +1,5 @@
-import base64
-import wave
-import uuid
 from google.cloud import speech
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass
 
 
 @dataclass

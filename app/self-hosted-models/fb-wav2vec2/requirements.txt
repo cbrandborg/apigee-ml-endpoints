@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+scipy
+numpy==1.23
+librosa
+torch
+transformers
+dataclasses
+soundfile
+python-multipart
