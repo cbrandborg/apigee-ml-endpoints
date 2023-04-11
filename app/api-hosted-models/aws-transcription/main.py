@@ -1,6 +1,5 @@
 import boto3
 from fastapi import FastAPI, Request
-from dataclasses import asdict
 from utils import *
 
 app = FastAPI()

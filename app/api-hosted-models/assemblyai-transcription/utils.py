@@ -7,7 +7,7 @@ import os
 import time
 from dotenv import load_dotenv
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass
 
 load_dotenv()
 

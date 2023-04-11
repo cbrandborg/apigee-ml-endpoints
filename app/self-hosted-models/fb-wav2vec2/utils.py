@@ -2,8 +2,6 @@ import librosa
 import torch
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 from dataclasses import dataclass
-from scipy.io import wavfile
-import soundfile as sf
 
 
 @dataclass

@@ -7,7 +7,7 @@ from utils import *
 
 app = FastAPI()
 
-@app.post("/whisper/audio")
+@app.post("/audio")
 async def postWhisper(request: Request, segments_required: bool = False):
     
     # Parsing request as object
@@ -25,7 +25,7 @@ async def postWhisper(request: Request, segments_required: bool = False):
     
     return (response, 200)
 
-@app.get("/whisper/models")
+@app.get("/models")
 async def getModels() -> tuple:
     
     available_models = whisper.available_models()
@@ -33,7 +33,7 @@ async def getModels() -> tuple:
     return (available_models, 200)
 
 
-@app.get("/whisper/models/{model_id}")
+@app.get("/models/{model_id}")
 async def getModelById(model_id: str) -> tuple:
     
     model = Model(model_id)
