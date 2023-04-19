@@ -1,3 +1,6 @@
-flask==2.2.2
-gunicorn==20.1.0
-whisper-openai
+fastapi==0.95.0
+pydantic==1.10.6
+uvicorn[standard]
+pydub==0.25.1
+requests
+wave

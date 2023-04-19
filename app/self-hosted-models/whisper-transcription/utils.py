@@ -48,9 +48,7 @@ class Payload():
 
     def read_incoming_b64_str(self):
         unique_id = str(uuid.uuid4())
-        file_path = f'output-{unique_id}.wav'
-
-        print(self.envelope['audio'])
+        file_path = f'output-{unique_id}.mp3'
 
         wav_bytes = base64.b64decode(self.envelope['audio'])
 
@@ -94,8 +92,6 @@ class Transcription():
 def whisper_transcribe(payload: object):
 
     model = whisper.load_model(payload.model_id)
-
-    print(payload)
 
     # If a language is not provided, Whisper will attempt to infer it from the audio
     if payload.language is None:

@@ -25,3 +25,7 @@ variable "terraform_sa" {
 variable "artifact_registry" {
   description = "Repository for pushing docker images"
 }
+
+variable "storage_bucket" {
+  description = "Storage bucket for hosting audio files temporarily"
+}

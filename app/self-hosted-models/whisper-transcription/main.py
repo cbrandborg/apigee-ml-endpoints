@@ -22,7 +22,9 @@ async def postWhisper(request: Request, segments_required: bool = False):
     transcription = Transcription(*transcription_values, segments_required)
 
     response = asdict(transcription)
-    
+
+    print(response['text'])
+
     return (response, 200)
 
 @app.get("/models")
