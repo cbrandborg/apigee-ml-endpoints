@@ -23,29 +23,29 @@
 # }
 
 
-# module "cloud_run_asr_services" {
-#   source  = "GoogleCloudPlatform/cloud-run/google"
-#   version = "~> 0.2.0"
+module "cloud_run_asr_services" {
+  source  = "GoogleCloudPlatform/cloud-run/google"
+  version = "~> 0.2.0"
 
-#   # Required variables
-#   service_name           = "cloudrun-asr-"
-#   project_id             = var.project_id
-#   location               = var.location
-#   image                  = "gcr.io/cloudrun/hello"
-#   traffic_split          = [
-#                               {
-#                                 "latest_revision": true,
-#                                 "percent": 100,
-#                                 "revision_name": "v1-0-0",
-#                                 "tag": null
-#                               }
-#                             ]
-#   #env_vars
-#   service_account_email   = "${var.cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"
-#   members                 = ["${var.cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"]
+  # Required variables
+  service_name           = "cloudrun-asr-google-service"
+  project_id             = var.project_id
+  location               = var.location
+  image                  = "europe-west1-docker.pkg.dev/prj-dvt-asr-apis/audio-asr-api-services/google-asr-service:latest"
+  traffic_split          = [
+                              {
+                                "latest_revision": true,
+                                "percent": 100,
+                                "revision_name": "v1-0-0",
+                                "tag": null
+                              }
+                            ]
+  #env_vars
+  service_account_email   = "${var.cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"
+  members                 = ["serviceAccount:${var.cloud_run_sa}@${var.project_id}.iam.gserviceaccount.com"]
 
-#   depends_on = [
-#     google_project_iam_binding.token_creator_service_agent_member
-#   ]
+  # depends_on = [
+  #   google_project_iam_binding.token_creator_service_agent_member
+  # ]
 
-# }
+}

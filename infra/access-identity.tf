@@ -42,6 +42,7 @@ resource "google_project_service" "api_enable-2" {
     "run.googleapis.com",
     "cloudbuild.googleapis.com",
     "artifactregistry.googleapis.com",
+    "speech.googleapis.com"
 
   ])
   service = each.key
