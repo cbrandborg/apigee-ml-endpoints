@@ -42,12 +42,14 @@ def verify_request(envelope):
     return envelope
 
 async def google_transcribe(payload: object):
-
+    print("Entering transcription method")
     client = speech.SpeechAsyncClient()
-    audio_file = speech.RecognitionAudio(content="{0}".format(payload.audio))
+    # audio_file = speech.RecognitionAudio(uri="{0}".format(payload.audio))
+    audio_file = speech.RecognitionAudio(uri=str(payload.audio))
+    print("URI for gcs object is: ",{payload.audio})
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=8000,
+        sample_rate_hertz=16000,
         # in Format "en-US"
         language_code="{0}".format(payload.language),
         enable_automatic_punctuation=True
